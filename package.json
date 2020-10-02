@@ -1,0 +1,38 @@
+{
+  "name": "carthage-bootstrap",
+  "version": "1.0.0",
+  "description": "GitHub Action that runs Carthage Bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "test": "jest",
+    "all": "npm run lint && npm run prepare && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devbotsxyz/carthage-bootstrap.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "Xcode",
+    "Carthage"
+  ],
+  "author": "Stefan Arentz <stefan@devbots.xyz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devbotsxyz/carthage-bootstrap/issues"
+  },
+  "homepage": "https://github.com/devbotsxyz/carthage-bootstrap#readme",
+  "dependencies": {
+    "@actions/cache": "^1.0.2",
+    "@actions/core": "^1.2.5",
+    "execa": "^4.0.3"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1",
+    "eslint": "^7.4.0",
+    "jest": "^26.4.2"
+  }
+}
