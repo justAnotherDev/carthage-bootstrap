@@ -21,6 +21,10 @@
 name: 'Carthage Bootstrap'
 description: 'Bootstrap and cache Carthage dependencies.'
 
+branding:
+  icon: 'command'
+  color: 'blue'
+
 inputs:
   github-token:
     description: "GitHub Access Token uses for fetching dependencies."
