@@ -27,14 +27,27 @@ branding:
 
 inputs:
   github-token:
-    description: "GitHub Access Token uses for fetching dependencies."
+    description: "Set this if you wish to use a different Github token than the one provided by the workflow."
     required: true
+    default: ${{ github.token }}
 
   platform:
     description: "The platforms to build for. One of 'all', 'macOS', 'iOS', 'watchOS', 'tvOS', or comma-separated values of the formers except for 'all'."
     required: false
   no-use-binaries:
     description: "Do not use downloaded binaries when possible."
+    required: false
+  use-netrc:
+    description: "Place authentication credentials in ~/.netrc file to facilitate cloning other private repositories."
+    default: false
+  configuration:
+    description: "The Xcode configuration to build."
+    required: false
+  xcconfig:
+    description: "Pass custom xcconfig file to carthage (using XCODE_XCCONFIG_FILE)."
+    required: false
+  skipping-schemes:
+    description: "One or many (comma-separated) schemes to skip in the format of SomeTarget:SomeSchemeToSkip"
     required: false
 
   cache:
@@ -44,6 +57,9 @@ inputs:
   cache-key:
     description: "Key under which to cache the Carthage directory. Will be generated if not specified."
     required: false
+  cache-build-files:
+    description: "Cache Carthage's internal build files for faster rebuilds. Prevents rebuilding all frameworks if only some have changed."
+    default: false
 
   verbose:
     description: "Print xcodebuild output inline."
